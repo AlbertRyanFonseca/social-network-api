@@ -56,7 +56,7 @@ const UserController = {
                     res.status(404).json({ message: 'No user found with this id' });
                     return;
                 }
-                // remove the user from any friends arrays
+
                 User.updateMany(
                     { _id: { $in: dbUserData.friends } },
                     { $pull: { friends: params.id } }
